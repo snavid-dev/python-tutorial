@@ -19,14 +19,17 @@ def game_board(player=0, row=0, column=0, just_display=False):
         print('some error occured:', e)
 
 
-def checkWinner(game):
-    for col in range(len(game)):
-        check = [];
-        for row in game:
-            check.append(row[col])
-        if check.count(check[0]) == len(check) and check[0] != 0:
-            print(f'Player {check[0]} won vertically!')
-            return
+
+
+# Check for winner vertically
+# def checkWinner(game):
+#     for col in range(len(game)):
+#         check = [];
+#         for row in game:
+#             check.append(row[col])
+#         if check.count(check[0]) == len(check) and check[0] != 0:
+#             print(f'Player {check[0]} won vertically!')
+#             return
 
 
 # Check for winner horizontally
