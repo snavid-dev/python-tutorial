@@ -19,8 +19,24 @@ def game_board(player=0, row=0, column=0, just_display=False):
         print('some error occured:', e)
 
 
-# TODO:  Hint: you can use game[0][0], game[1][1], game[2][2] for diagonal || game[0][2], game[1][1], game[2][0] for anti diagonal
-# TODO: Hint:  enumrate, reverse & range method can help me
+
+# Check winner diagonal
+def checkWinner(game):
+    diags = [];
+    for index, col in enumerate(range(len(game))):
+        diags.append(game[index][col])
+
+    if diags.count(diags[0]) == len(diags) and diags[0] != 0:
+        print(f'Player {diags[0]} won diagonally!')
+        return
+
+    diags = [];
+    for index, col in enumerate(reversed(range(len(game)))):
+        diags.append(game[index][col])
+    if diags.count(diags[0]) == len(diags) and diags[0] != 0:
+        print(f'Player {diags[0]} won anti-diagonally!')
+        return
+
 
 # Check for winner vertically
 # def checkWinner(game):
@@ -41,8 +57,8 @@ def game_board(player=0, row=0, column=0, just_display=False):
 #             return
 
 
-game_board(player=2, row=0, column=1)
+game_board(player=2, row=0, column=2)
 game_board(player=2, row=1, column=1)
-game_board(player=2, row=2, column=1)
+game_board(player=2, row=2, column=0)
 game_board(just_display=True)
 checkWinner(game)
